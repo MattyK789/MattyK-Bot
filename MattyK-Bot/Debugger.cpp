@@ -243,8 +243,11 @@ DWORD Debugger::GetLocal_PlayerAddress() { return Local_PlayerAddress; }
 void Debugger::Clear() { system("cls"); }
 
 // Cheat functions.
-void Debugger::Bhop()
+void Debugger::Bhop(bool enabled)
 {
+	if (!enabled)
+		return;
+
 	if (GetAsyncKeyState(VK_SPACE))
 	{
 		if (Read<int>(Local_PlayerAddress + m_fFlags) == 257)
@@ -262,8 +265,11 @@ void Debugger::Bhop()
 	}
 }
 
-void Debugger::ESP()
+void Debugger::ESP(bool enabled)
 {
+	if (!enabled)
+		return;
+
 	CGlow Glow;
 
 	int GlowArray = Read<int>(Client_BaseAddress + dwGlowObjectManager);																				// Get glow array.
@@ -310,13 +316,11 @@ void Debugger::ESP()
 	}
 }
 
-void Debugger::Shoot()
+void Debugger::Trigger(bool enabled)
 {
+	if (!enabled)
+		return;
 
-}
-
-void Debugger::Trigger()
-{
 	if (GetAsyncKeyState(VK_MENU))
 	{
 		//Retrieve player informations
@@ -339,8 +343,11 @@ void Debugger::Trigger()
 	}
 }
 
-void Debugger::NoFlash() 
+void Debugger::NoFlash(bool enabled)
 {
+	if (!enabled)
+		return;
+
 	float FlashAlpha = Read<float>(Local_PlayerAddress + m_flFlashMaxAlpha);																			// Get's the flash alpha value.
 	float FlashDuration = Read<float>(Local_PlayerAddress + m_flFlashDuration);																			// Get the remaing flash duration.
 

@@ -45,11 +45,10 @@ public:
 	void Clear();
 
 	// Cheat functions.
-	void Bhop();
-	void ESP();
-	void Shoot();
-	void Trigger();
-	void NoFlash();
+	void Bhop(bool enabled);
+	void ESP(bool enabled);
+	void Trigger(bool enabled);
+	void NoFlash(bool enabled);
 
 	// Read/Write functions.
 	template<class T>

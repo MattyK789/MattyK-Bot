@@ -73,18 +73,16 @@ int main()
 			UpdateScreen();
 		}
 
-		if (ESP_Enabled)
-			Debug.ESP();
+		thread T1(&Debugger::ESP, Debug, ESP_Enabled);
+		thread T2(&Debugger::Bhop, Debug, Bhop_Enabled);
+		thread T3(&Debugger::Trigger, Debug, Trigger_Enabled);
+		thread T4(&Debugger::NoFlash, Debug, NoFlash_Enabled);
 
-		if (Bhop_Enabled)
-			Debug.Bhop();
+		T1.join();
+		T2.join();
+		T3.join();
+		T4.join();
 
-		if (Trigger_Enabled)
-			Debug.Trigger();
-
-		if (NoFlash_Enabled)
-			Debug.NoFlash();
-
-		Sleep(1);
+		Sleep(2);
 	}
 }
