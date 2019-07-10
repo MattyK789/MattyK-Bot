@@ -3,6 +3,10 @@
 
 #include "Includes.h"
 
+#define GREEN 10
+#define RED 12
+#define WHITE 15
+
 using namespace std;
 
 void SetConsoleColour(int Colour);

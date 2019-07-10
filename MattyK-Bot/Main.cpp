@@ -17,7 +17,7 @@ void UpdateScreen()
 {
 	Debug.Clear();
 
-	SetConsoleColour(10);
+	SetConsoleColour(GREEN);
 	cout << R"(
    __  ______ ______________  ____ __  ___  ____  ______
   /  |/  / _ /_  __/_  __/\ \/ / //_/ / _ )/ __ \/_  __/

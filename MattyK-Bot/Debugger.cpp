@@ -23,17 +23,17 @@ Debugger::Debugger()
 	Engine_BaseAddress = NULL;
 	Local_PlayerAddress = NULL;
 
-	SetConsoleColour(10);
+	SetConsoleColour(GREEN);
 
 	// Getting window handle.
 	if (SetWindow_Handle())
 	{
-		cout << "Acquired window - " << hex << Window_Handle << endl;
+		cout << "Acquired window - " << uppercase << hex << Window_Handle << endl;
 		Sleep(300);
 	}
 	else
 	{
-		SetConsoleColour(12);
+		SetConsoleColour(RED);
 		cout << "Could not get window handle!" << endl;
 		Sleep(3000);
 		exit(0);
@@ -42,12 +42,12 @@ Debugger::Debugger()
 	// Getting process ID (base address).
 	if (SetProcess_BaseAddress())
 	{
-		cout << "Acquired process address - " << hex << Process_BaseAddress << endl;
+		cout << "Acquired process address - " << uppercase << hex << Process_BaseAddress << endl;
 		Sleep(300);
 	}
 	else
 	{
-		SetConsoleColour(12);
+		SetConsoleColour(RED);
 		cout << "Could not get process address!" << endl;
 		Sleep(3000);
 		exit(0);
@@ -56,12 +56,12 @@ Debugger::Debugger()
 	// Getting process handle.
 	if (SetProcess_Handle())
 	{
-		cout << "Acquired process handle - " << hex << Process_Handle << endl;
+		cout << "Acquired process handle - " << uppercase << hex << Process_Handle << endl;
 		Sleep(300);
 	}
 	else
 	{
-		SetConsoleColour(12);
+		SetConsoleColour(RED);
 		cout << "Could not get process handle!" << endl;
 		Sleep(3000);
 		exit(0);
@@ -75,7 +75,7 @@ Debugger::Debugger()
 	}
 	else
 	{
-		SetConsoleColour(12);
+		SetConsoleColour(RED);
 		cout << "Could not get \"engine.dll\" base address!" << endl;
 		Sleep(3000);
 		exit(0);
@@ -88,7 +88,7 @@ Debugger::Debugger()
 	}
 	else
 	{
-		SetConsoleColour(12);
+		SetConsoleColour(RED);
 		cout << "Could not get \"client_panorama.dll\"  base address!" << endl;
 		Sleep(3000);
 		exit(0);
@@ -102,7 +102,7 @@ Debugger::Debugger()
 	}
 	else
 	{
-		SetConsoleColour(12);
+		SetConsoleColour(RED);
 		cout << "Could not get local player address!" << endl;
 		Sleep(3000);
 		exit(0);
